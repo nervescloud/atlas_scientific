@@ -7,7 +7,11 @@ defmodule AtlasScientific.MixProject do
       version: "0.1.0",
       elixir: "~> 1.17",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      description: description(),
+      package: package(),
+      deps: deps(),
+      name: "AtlasScientific",
+      source_url: "https://github.com/nervescloud/atlas_scientific"
     ]
   end
 
@@ -23,6 +27,18 @@ defmodule AtlasScientific.MixProject do
       {:nerves_hub_link, "~> 2.7", optional: true},
       {:dialyxir, "~> 1.4", only: :dev, runtime: false},
       {:ex_doc, "~> 0.34", only: :dev, runtime: false}
+    ]
+  end
+
+  defp description() do
+    "A wrapper around the Atlas Scientific EZO circuits, primarily for use within Nerves applications."
+  end
+
+  defp package() do
+    [
+      files: ~w(lib .formatter.exs mix.exs README.md LICENSE CHANGELOG.md),
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/nervescloud/atlas_scientific"}
     ]
   end
 end
